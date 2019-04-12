@@ -21,7 +21,15 @@ n C++, a function can specify the list of exceptions that it can throw using com
 
   void fun(int a, char b) throw (Exception1, Exception2, ..)
 
+
+
+  When an exception is thrown, destructors of the objects (whose scope ends with the try block) is automatically called before the catch block gets exectuted
+
 */
+
+class Base{};
+class Derived : public Base{};
+
 
 class test{
     public:
@@ -29,6 +37,16 @@ class test{
     ~test(){std::cout << "destructor called \n";};
 };
 int main(){
+    Derived D;
+    try{
+        throw D;
+    }
+    catch(Derived D){
+        std::cout << "From Derived Class \n";
+    }
+    catch(Base B){
+        std::cout << "From Base Class \n";
+    }
     int i=7;
     test T;
     try{
