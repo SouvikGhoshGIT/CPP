@@ -1,5 +1,6 @@
 #include<iostream>
 #include<tuple>
+#include<algorithm>
 
 int fun(){
     return 3;
@@ -25,7 +26,7 @@ void example(int a=10){
 void exam(int const a=5){
 
     std::cout << a << "\n";
-    
+
 
 }
 /*
@@ -46,15 +47,15 @@ edit
 play_arrow
 
 brightness_4
-class S 
-{ 
-public: 
-    inline int square(int s) // redundant use of inline 
-    { 
-        // this function is automatically inline 
-        // function body 
-    } 
-}; 
+class S
+{
+public:
+    inline int square(int s) // redundant use of inline
+    {
+        // this function is automatically inline
+        // function body
+    }
+};
 
 C++ compiler checks the argument types of inline functions and necessary conversions are performed correctly. Preprocessor macro is not capable for doing this. One other thing is that the macros are managed by preprocessor and inline functions are managed by C++ compiler.
 
@@ -72,7 +73,7 @@ public:
 inline void inline_practice::show(){
 
 std::cout <<"calling from inline fucntion \n";
-} 
+}
 
 void a(){
     std::cout << "From void function \n";
@@ -93,6 +94,12 @@ return std::make_tuple(n,m,true);
 
 void multi_pointer(int a,int b,int* c){
 *c=a+b;
+};
+
+
+//functor
+int increment(int x){
+return x+1;
 };
 int main(){
     int a=fun();
@@ -115,5 +122,16 @@ int main(){
     int sum;
     multi_pointer(2,3,&sum);
     std::cout << sum <<"\n";
+
+    int arr[6]={10,11,12,13,14,16};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int res[n];
+
+    std::transform(arr,arr+n,res,increment);
+    for(int i=0;i<n;i++){
+        std::cout << res[i] <<" " ;
+
+    }
+    std::cout << "\n";
 }
 
