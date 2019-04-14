@@ -96,7 +96,18 @@ void multi_pointer(int a,int b,int* c){
 *c=a+b;
 };
 
+class inc{
+    private:
+        int x;
+    public:
+        inc(int a){
+            x=a;
+        }
 
+        int operator () (int x1){ 
+            return x+x1;
+        }
+};
 //functor
 int increment(int x){
 return x+1;
@@ -128,6 +139,14 @@ int main(){
     int res[n];
 
     std::transform(arr,arr+n,res,increment);
+    for(int i=0;i<n;i++){
+        std::cout << res[i] <<" " ;
+
+    }
+    std::cout << "\n";
+
+
+        std::transform(arr,arr+n,res,inc(5));
     for(int i=0;i<n;i++){
         std::cout << res[i] <<" " ;
 
