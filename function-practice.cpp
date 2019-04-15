@@ -1,6 +1,7 @@
 #include<iostream>
 #include<tuple>
 #include<algorithm>
+#include<cmath>
 
 int fun(){
     return 3;
@@ -104,7 +105,7 @@ class inc{
             x=a;
         }
 
-        int operator () (int x1){ 
+        int operator () (int x1){
             return x+x1;
         }
 };
@@ -152,5 +153,12 @@ int main(){
 
     }
     std::cout << "\n";
+
+    // exploring floor and ciel
+    std::cout << floor(2.5) <<"\n";
+    std::cout << ceil(2.5) <<"\n";
+    std::cout << floor(-2.5) <<"\n";
+    std::cout << ceil(-2.5) <<"\n";
+
 }
 
