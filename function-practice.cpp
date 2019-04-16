@@ -2,6 +2,7 @@
 #include<tuple>
 #include<algorithm>
 #include<cmath>
+#include<ctime>
 
 int fun(){
     return 3;
@@ -114,6 +115,11 @@ int increment(int x){
 return x+1;
 };
 int main(){
+
+    clock_t start_t,end_t;
+    start_t=clock();
+    time_t start,end;
+    time(&start);
     int a=fun();
     std ::cout << a <<"\n" ;
     pass_by_value(a);
@@ -160,5 +166,16 @@ int main(){
     std::cout << floor(-2.5) <<"\n";
     std::cout << ceil(-2.5) <<"\n";
 
+    time(&end);
+    std::cout <<difftime(start,end) <<"\n";
+    std::cout<< scalbn(2,4) <<"\n";
+
+    std::cout << ctime(&start) <<"\n";
+    end_t=clock();
+
+    std::cout << (end_t-start_t)/CLOCKS_PER_SEC <<"\n";
+
+    std::cout << (end_t-start_t)/CLOCKS_PER_SEC <<"\n";
+    
 }
 
